@@ -12,8 +12,8 @@ Resources:
         CreateThumbnailEvent:
           Type: S3
           Properties:
-            Bucket: !Ref my-source-bucket76
+            Bucket: !Ref SrcBucket
             Events: s3:ObjectCreated:*
 
-  my-source-bucket76:
+  SrcBucket:
     Type: AWS::S3::Bucket
