@@ -6,10 +6,7 @@
                 "s3:GetObject",
                 "s3:GetObjectVersion"
             ],
-            "Resource": [
-                "arn:aws:s3:::aws-codestar-us-east-1-375672192395-myserverlesspro-pipe",
-                "arn:aws:s3:::aws-codestar-us-east-1-375672192395-myserverlesspro-pipe/*"
-            ],
+            "Resource": "*",
             "Effect": "Allow"
         },
         {
@@ -53,7 +50,7 @@
                 "iam:PassRole"
             ],
             "Resource": [
-                "arn:aws:iam::375672192395:role/CodeStarWorker-myserverlesspro-Lambda"
+                "arn:aws:iam::375672192395:role/*"
             ],
             "Effect": "Allow"
         },
@@ -62,7 +59,6 @@
                 "cloudformation:CreateChangeSet"
             ],
             "Resource": [
-                "arn:aws:cloudformation:us-east-1:aws:transform/Serverless-2016-10-31",
                 "arn:aws:cloudformation:us-east-1:aws:transform/CodeStar"
             ],
             "Effect": "Allow"
