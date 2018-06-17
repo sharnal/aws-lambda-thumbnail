@@ -1,0 +1,71 @@
+{
+    "Statement": [
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": [
+                "arn:aws:s3:::aws-codestar-us-east-1-375672192395-myserverlesspro-pipe",
+                "arn:aws:s3:::aws-codestar-us-east-1-375672192395-myserverlesspro-pipe/*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "codestar:SyncResources",
+                "lambda:CreateFunction",
+                "lambda:DeleteFunction",
+                "lambda:AddPermission",
+                "lambda:UpdateFunction",
+                "lambda:UpdateFunctionCode",
+                "lambda:GetFunction",
+                "lambda:GetFunctionConfiguration",
+                "lambda:UpdateFunctionConfiguration",
+                "lambda:RemovePermission",
+                "lambda:listTags",
+                "lambda:TagResource",
+                "lambda:UntagResource",
+                "apigateway:*",
+                "dynamodb:CreateTable",
+                "dynamodb:DeleteTable",
+                "dynamodb:DescribeTable",
+                "kinesis:CreateStream",
+                "kinesis:DeleteStream",
+                "kinesis:DescribeStream",
+                "sns:CreateTopic",
+                "sns:DeleteTopic",
+                "sns:ListTopics",
+                "sns:GetTopicAttributes",
+                "sns:SetTopicAttributes",
+                "s3:CreateBucket",
+                "s3:DeleteBucket",
+                "config:DescribeConfigRules",
+                "config:PutConfigRule",
+                "config:DeleteConfigRule"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::375672192395:role/CodeStarWorker-myserverlesspro-Lambda"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "cloudformation:CreateChangeSet"
+            ],
+            "Resource": [
+                "arn:aws:cloudformation:us-east-1:aws:transform/Serverless-2016-10-31",
+                "arn:aws:cloudformation:us-east-1:aws:transform/CodeStar"
+            ],
+            "Effect": "Allow"
+        }
+    ]
+}
